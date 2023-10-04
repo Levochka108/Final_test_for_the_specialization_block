@@ -1,0 +1,475 @@
+  1  sudo ip link add veth0 type veth peer name veth1
+    2  ls -l
+    3  ip a
+    4  sudo ip link set veth1 netns testns123
+    5  ip a
+    6  sudo ip addr add 10.0.0.1/24 dev veth0
+    7  sudo ip link set dev veth0 up
+    8  ip a
+    9  ping 10.0.0.2
+   10  mkdir newroot
+   11  ls -l
+   12  mkdir newroot/bin
+   13  cp /bin/bash newroot/bin/
+   14  ldd /bin/bash
+   15  mkdir newroot/lib 
+   16  mkdir newroot/lib64
+   17  cp /lib/x86_64-linux-gnu/libtinfo.so.6 newroot/bin
+   18  cp /lib/x86_64-linux-gnu/libc.so.6 newroot/lib
+   19  cp /lib/x86_64-linux-gnu/libtinfo.so.6 newroot/lib
+   20  cp /lib64/ld-linux-x86-64.so.2 newroot/lib64
+   21  sudo choot newroot /bin/bash
+   22  sudo chroot newroot /bin/bash
+   23  mkdir newroot/usr
+   24  mkdir newroot/usr/bin
+   25  cp /usr/bin/ls newroot/usr/bin/
+   26  ldd /usr/bin/ls
+   27  cp lib/x86_64-linux-gnu/libselinux.so.1 newroot/lib/
+   28  ldd /usr/bin/ls
+   29  cp libselinux.so.1 => /lib/x86_64-linux-gnu/libselinux.so.1 newroot/lib/
+   30  cp /lib/x86_64-linux-gnu/libc.so.6 newroot/lib/
+   31  cp /lib/x86_64-linux-gnu/libpcre2-8.so.0 newroot/lib/
+   32  cp /lib64/ld-linux-x86-64.so.2 newroot/lib64/
+   33  sudo chroot newroot /bin/bash
+   34  cp /lib/x86_64-linux-gnu/libselinux.so.1 newroot/lib/
+   35  sudo chroot newroot /bin/bash
+   36  ip a
+   37  sodo ip netns add testns123
+   38  sudo ip netns add testns123
+   39  sudo ip netns exec testns123 bash
+   40  man unshare
+   41  sudo unhare --net /bin/bash
+   42  sudo unshare --net /bin/bash
+   43  ls -l /proc/$$/ns
+   44  sudo unshare --net /bin/bash
+   45  sudo unshare --pid --net --fork --mount-proc /bin/bash
+   46  ls -l /proc/$$/ns
+   47  sudo unshare --pid --net --fork --mount-proc /bin/bash
+   48  ls -l
+   49  cd /newroot
+   50  cd newroot
+   51  sudo apt upgate
+   52  sudo apt update
+   53  sudo apt install cgroup-tools
+   54  sudo apt -y install cgroup-tools
+   55  sudo apt install lxe debootsrap bridge-utils lxe-templates
+   56  lxc-create --name=con1 --template=ubuntu
+   57  sudo apt install -y lxc-utils
+   58  lxc-create --name=con1 --template=ubuntu
+   59  lxc-create -n con2 -t ubuntu --logfile=HomeWork02/con2.log
+   60  sudo apt install group-tools
+   61  sudo apt install cgroup-tools
+   62  sudo apt install lxc debootstarp brigde-utils lxc-templates
+   63  sudo apt install lxc debootstrap brigde-utils lxc-templates
+   64  sudo apt install lxc debootstrap bridge-utils lxc-templates
+   65  lxc-create --name=con1 --template=ubuntu
+   66  sudo lxc-create --name=con1 --template=ubuntu
+   67  sudo lxc-create -n test1230 -t ubuntu
+   68  sudo lxc-start -n test1230
+   69  sudo lxc-attach -n test1230
+   70  sudo lxc-cgroup -n test1230 memory.max 256M
+   71  sudo lxc-attach -n test1230
+   72  free -m
+   73  sudo lxc-create -n test1230 -t ubuntu
+   74  sudo lxc-create -n test1231 -t ubuntu
+   75  sudo lxc-attach -n test1231
+   76  sudo lxc-start -n test1231
+   77  sudo lxc-attach -n test1231
+   78  sudo lxc-cgroup -n test1231 memory.max 256M
+   79  sudo lxc-attach -n test1231
+   80  lxc network show lxdbr0
+   81  lxc-ls -f
+   82  lxc-ls --fancy
+   83  lxc-ls --active -1
+   84  --hel
+   85  --help
+   86  -&
+   87  -?
+   88  -q
+   89  ls -l
+   90  cd HomeWork02/
+   91  ls -l
+   92  sudo lxc-create -n test1232 -t ubuntu -f /usr/share/doc/lxc/examples/lxc-veth.conf
+   93  sudo find/ -name lxc-veth.conf
+   94  sudo find / -name lxc-veth.conf
+   95  nano lxc-veth.conf
+   96  lxc-ls
+   97  lxc-ls --active
+   98  sudo lxc-ls --active
+   99  sudo lxc-attach -n test1230
+  100  sudo systeamctl restart networking
+  101  sudo systemctl restart networking
+  102  sudo apt update
+  103  sudo apt upgrade
+  104  curl -fsSL http://get.docker.com -o get-docker.sh
+  105  sudo snap install curl -y
+  106  sudo snap install curl
+  107  curl -fsSL http://get.docker.com -o get-docker.sh
+  108  nano Command for docker.txt
+  109  sudo sh get-docker.sh
+  110  sudo usermod -aG docker $USER
+  111  sudo groupadd docker
+  112  sudo usermod -aG docker $USER
+  113  sudo usermod -aG docker $USER
+  114  grooups $USER
+  115  groups $USER
+  116  sudo systemctl start docker
+  117  docker --version
+  118  sudo apt  install docker.io
+  119  sudo systemctl start containerd
+  120  sudo systemctl enable containerd
+  121  docker --version
+  122  docker run -d --name mariadb-container -e MYSQL_ROOT_PASSWORD=my-secret-pw -p 3306:3306 mariadb:latest
+  123  sudo usermod -aG docker $USER
+  124  sudo systemctl restart docker
+  125  sudo reboot
+  126  docker ps
+  127  docker run --name my-maria-db-gb-l -e MARIADB_ROOT_PASSWORD=ert1234 -v /home/levochka108/mydb:/var/lib/mysql -d mariadb:10.10.2
+  128  docker exec -it 1e6ffcb9031c bash
+  129  faind mysql
+  130  find mysql
+  131  cd musql
+  132  ls -l
+  133  cd mydb
+  134  ls
+  135  pwd
+  136  docker ps
+  137  ls -l
+  138  cli
+  139  sudo apt install mono-runtime
+  140  cli
+  141  history
+  142  docker run -d --name mariadb-container -e MYSQL_ROOT_PASSWORD=test123 -e HOSTNAME=$levochka108-VirtualBox -p 3306:3306 your_container_image
+  143  docker run -d --name mariadb-container -e MYSQL_ROOT_PASSWORD=test123 -e HOSTNAME=$levochka108-VirtualBox -p 3306:3306 1e6ffcb9031c
+  144  docker run -d --name mariadb-container -e MYSQL_ROOT_PASSWORD=test123 -e HOSTNAME=$(hostname) -p 3306:3306 mariadb:latest
+  145  history 
+  146  docker run -d --name phpmyadmin-container --link mariadb-container:db -p 8080:80 phpmyadmin/phpmyadmin
+  147  history 
+  148  docker ps
+  149  hostname
+  150  ды -д
+  151  ls -l
+  152  mkdir levochka108
+  153  cd levochka108/
+  154  mkdir GB
+  155  cd GB/
+  156  nano docker-compose.yml
+  157  cd levochka108/GB
+  158  ls -l
+  159  nano docker-compose.yml
+  160  cd levochka108/GB/
+  161  ls -l
+  162  nano docker-compose.yml
+  163  nano docker-compose.yml
+  164  docker-compose up
+  165  docker-compose up
+  166  sudo apt update
+  167  sudo apt install -y docker
+  168  docker-compose up
+  169  docker --version
+  170  sudo apt install -y docker-compose
+  171  docker-compose up
+  172  cd levochka108/GB/
+  173  ls -l
+  174  nano docker-compose.yml
+  175  history
+  176  nano docker-compose.yml
+  177  cd levochka108/GB
+  178  nano Dockerfile 
+  179  docker build -t my-ubuntu-container .
+  180  docker build -t my-ubuntu-container .
+  181  python --version
+  182  docker --version
+  183  ubuntu --version
+  184  python
+  185  python3
+  186  cd levochka108/GB/
+  187  nanp hello.py
+  188  nano hello.py
+  189  docker Dockerfile
+  190  ls -l
+  191  nano Dockerfile 
+  192  docker build -t my-ubuntu-container .
+  193  pwd
+  194  nano Dockerfile 
+  195  docker build -t my-ubuntu-container .
+  196  docker run my-гигтег-container
+  197  docker run my-ubuntu-container
+  198  docker build -t my-python-container .
+  199  cp /home/levochka108/levochka108/GB/hello.py .
+  200  docker build -t my-python-container .
+  201  cp /home/levochka108/levochka108/GB/hello.py .
+  202  nano
+  203  nano Dockerfile 
+  204  docker build -t my-python-container .
+  205  docker build -t my-python-container -f - . <<EOF
+  206  FROM python:3.9
+  207  COPY ./hello.py /app/hello.py
+  208  WORKDIR /app
+  209  CMD ["python", "hello.py"]
+  210  EOF
+  211  docker run my-python-container
+  212  ERROR: failed to solve: executor failed running [/bin/sh -c apt-get update && apt-get install -y python3 python3-pip]: exit code: 100
+  213  docker ps
+  214  docker stop 7de27e2af1b8 3920066794b8 
+  215  docker ps
+  216  docker stop 818c5db7f9c6 91f1390fda59 7a77f87a67cd
+  217  docker ps
+  218  cd levochka108/GB
+  219  nano Dockerfile
+  220  cd /
+  221  ls -l
+  222  cd /app
+  223  ls -l
+  224  faind levochka108
+  225  find levochka108
+  226  pwd
+  227  cd home/
+  228  ls -l
+  229  cd levochka108/
+  230  ls -l
+  231  cd levochka108/
+  232  ls -l
+  233  cd G
+  234  cd GB/
+  235  ls- l
+  236  ls -l
+  237  pwd
+  238  python --version
+  239  sudo apt install -y python3
+  240  python --version
+  241  docker ps
+  242  ls -l
+  243  cd .ssh
+  244  ssh-keygen -t rsa -b 4096 -C "d.klochkov9421@gmail.com"
+  245  cd levochka108/GB
+  246  cat > "Домашние животные"
+  247  cat > "Вьючные животные"
+  248  cat "Домашние животные" "Вьючные животные" > "Друзья человека"
+  249  ls -l
+  250  less "Друзья человека" 
+  251  ls -l
+  252  mkdir FinalTaskGB
+  253  cd FinalTaskGB/
+  254  cat > "Домашние животные" 
+  255  cat > "Вьючные животные"
+  256  cat "Домашние животные" "Вьючные животные" > "Join animal"
+  257  less Join\ animal 
+  258  mv "Join animal" "Друзья человека"
+  259  less Друзья\ человека 
+  260  ls -l
+  261  history
+  262  git
+  263  git add .
+  264  git init
+  265  git config --global user.name "Ваше Имя"
+  266  git config --global user.name "Dmitrii Klochkov"
+  267  git config --global user.email "d.klochkov9421@gmail.com"
+  268  git add .
+  269  git commit -m "[task 1] Созданы файлы Домашние животные и Вьючные животные, произведено обьединение этих файлов в новый фаил Друзья человека"
+  270  git branch -M main
+  271  git remote add origin https://github.com/Levochka108/Final_test_for_the_specialization_block.git
+  272  git push -u origin main
+  273  eval "$(ssh-agent -s)"
+  274  ssh-add ~/.ssh/id_rsa
+  275  git remote add origin git@github.com:Levochka108/Final_test_for_the_specialization_block.git
+  276  git status
+  277  git log
+  278  git push
+  279  git push --set-upstream origin main
+  280  git remote add origin https://github.com/Levochka108/Final_test_for_the_specialization_block.git
+  281  git branch -M main
+  282  git push -u origin main
+  283  git remote add origin https://github.com/Levochka108/Final_test_for_the_specialization_block.git
+  284  git push -u origin main
+  285  Username for 'https://github.com': Levocha108
+  286  Password for 'https://Levochka108@github.com':55DkL94oK
+  287  ls -l
+  288  git 
+  289  git pull https://github.com/Levochka108/Final_test_for_the_specialization_block.git
+  290  ls -l
+  291  git config pull.rebase false
+  292  ls -l
+  293  git pull https://github.com/Levochka108/Final_test_for_the_specialization_block.git
+  294  git log
+  295  git status
+  296  git push
+  297  git push --set-upstream origin main
+  298  git push
+  299  Username for 'https://github.com': Levochka108
+  300  Password for 'https://Levochka108@github.com': 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
+  301  restatr
+  302  ls -l
+  303  cd levochka108/GB
+  304  ls -l
+  305  cd FinalTaskGB/
+  306  git status
+  307  ls -l
+  308  cd Final_test_for_the_specialization_block/
+  309  ls -l
+  310  less Вьючные\ животные 
+  311  mkdir new_dir
+  312  ls -l
+  313  pwd
+  314  mv /home/levochka108/levochka108/GB/FinalTaskGB/Final_test_for_the_specialization_block /home/levochka108/levochka108/GB/FinalTaskGB/Final_test_for_the_specialization_block/new_dir/
+  315  mv /home/levochka108/levochka108/GB/FinalTaskGB/Final_test_for_the_specialization_block /home/levochka108/levochka108/GB/FinalTaskGB/new_destination/
+  316  cd ..
+  317  li - l
+  318  li -l
+  319  ls -l
+  320  cd new_destination/
+  321  ls -l
+  322  git status
+  323  git add .
+  324  git commit -m "Задание 2: Создать директорию, переместить туда файлы. command [ mv /path/ /new_path/ ]."
+  325  git pushq
+  326  git push
+  327  cd ..
+  328  git status
+  329  git add .
+  330  git commit -m "Задание 2: Создать директорию, переместить туда файлы. command [ mv /path/ /new_path/ ]."
+  331  git push
+  332  git push --set-upstream origin main
+  333  git push --set-upstream origin main
+  334  git pull
+  335  git clone https://github.com/Levochka108/Final_test_for_the_specialization_block.git
+  336  ls -l
+  337  pwd
+  338  mv /home/levochka108/levochka108/GB/FinalTaskGB/new_destination/ /home/levochka108/levochka108/GB/FinalTaskGB/Final_test_for_the_specialization_block/
+  339  ls -l
+  340  cd Fi
+  341  cd Final_test_for_the_specialization_block/
+  342  git status
+  343  git add .
+  344  git commit -m "Задание 2: Создать директорию, переместить туда файлы. command [ mv /path/ /new_path/ ]."
+  345  git push
+  346  git rm --cached new_destination
+  347  git status
+  348  git push
+  349  cd .. .. ..
+  350  cd ..
+  351  ls -l
+  352  cd ..
+  353  rm -r GB
+  354  y
+  355  ls -l
+  356  cd GB
+  357  ls -l
+  358  cd ..
+  359  rm -r GB
+  360  y
+  361  rm -rf GB
+  362  ls -l
+  363  rm -rf new_program/
+  364  mkdir GB
+  365  git init
+  366  git status
+  367  nano README.md
+  368  git status
+  369  git add .
+  370  git commit -m "First commit" 
+  371  git branch -M main
+  372  git remote add origin https://github.com/Levochka108/Final_test_for_the_specialization_block.git
+  373  git push -u origin main
+  374  git remote add origin https://github.com/Levochka108/Final_test_for_the_specialization_block.git
+  375  git branch -M main
+  376  git push -u origin main
+  377  git remote add origin git@github.com:Levochka108/Final_test_for_the_specialization_block.git
+  378  ls -l
+  379  cd Gb
+  380  cd GB
+  381  git clone git remote add origin git@github.com:Levochka108/Final_test_for_the_specialization_block.git
+  382  git remote add origin git@github.com:Levochka108/Final_test_for_the_specialization_block.git
+  383  cd .
+  384  cd 
+  385  cd levochka108/
+  386  cd 
+  387  rm -fr levochka108/
+  388  mkdir levochka108
+  389  cd levochka108/
+  390  mkdir GB
+  391  cd GB/
+  392  systemctl status ssh
+  393  cd
+  394  systemctl status ssh
+  395  cd GB/
+  396  cd levochka108/
+  397  cd GB/
+  398  sudo apt-get install -y openssh-server
+  399  sudo systemctl start ssh
+  400  git clone git@github.com:Levochka108/Final_test_for_the_specialization_block.git
+  401  echo "# Final_test_for_the_specialization_block" >> README.md
+  402  git init
+  403  git add README.md
+  404  git commit -m "first commit"
+  405  git branch -M main
+  406  git remote add origin git@github.com:Levochka108/Final_test_for_the_specialization_block.git
+  407  git push -u origin main
+  408  git status
+  409  git log
+  410  echo "собаки" > "Домашние животные"
+  411  echo "кошки" >> "Домашние животные"
+  412  echo "хомяки" >> "Домашние животные"
+  413  echo "лошади" > "Вьючные животные"
+  414  echo "верблюды" >> "Вьючные животные"
+  415  echo "ослы" >> "Вьючные животные"
+  416  cat "Домашние животные" "Вьючные животные" > "Друзья человека"
+  417  cat "Друзья человека"
+  418  git add .
+  419  git commit -m "Задача 1"
+  420  history
+  421  ls -l
+  422  nano README.md 
+  423  mkdir животные
+  424  mv "Друзья человека" животные/
+  425  mv "Друзья человека" животные/
+  426  ls
+  427  dit add .
+  428  git add .
+  429  git commit -m "Задача 2"
+  430  git push
+  431  sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu bionic universe'
+  432  sudo apt update
+  433  sudo apt update
+  434  sudo apt install mysql-client
+  435  git add .
+  436  git commit -m "Задача 3"
+  437  wget http://archive.ubuntu.com/ubuntu/pool/universe/h/htop/htop_2.2.0-1_amd64.deb
+  438  sudo apt install htop
+  439  wget http://archive.ubuntu.com/ubuntu/pool/universe/h/htop/htop_2.2.0-1_amd64.deb
+  440  sudo dpkg -i htop_2.2.0-1_amd64.deb
+  441  sudo apt install htop
+  442  sudo dpkg -i example.deb
+  443  cd /path/to/directory
+  444  cd /home/levochka108/Downloads
+  445  sudo dpkg -i example.deb
+  446  sudo apt install gdebi -y
+  447  sudo apt update
+  448  sudo apt install cowsay fortune
+  449  sudo yum install cowsay fortune-mod
+  450  cowsay "Привет, я корова!"
+  451  cowsay "Привет, я корова!"
+  452  fortune | cowsay
+  453  sudo dpkg -i ~/levochka108/GB/Cowsay
+  454  sudo dpkg -i ~/Downloads/cowsay_3.03+dfsg2-8_all.deb
+  455  ls ~/Downloads/cowsay_3.03+dfsg2-8_all.deb
+  456  ls ~/Downloads
+  457  wget http://archive.ubuntu.com/ubuntu/pool/universe/c/cowsay/cowsay_3.03+dfsg2-8_all.deb -P ~/Downloads
+  458  sudo dpkg -i ~/Downloads/cowsay_3.03+dfsg2-8_all.deb
+  459  sudo dpkg -r cowsay
+  460  ls cd Documents touch myfile.txt nano myfile.txt history
+  461  ls
+  462  cd
+  463* 
+  464  cd Documents
+  465  touch myfile.txt
+  466  nano myfile.txt 
+  467  cd .
+  468  cd ..
+  469  cd levochka108/GB/
+  470  li -l
+  471  cd ..
+  472  ls -l
+  473  cd GB
+  474  ls -l
+  475  history
